@@ -75,4 +75,19 @@ describe("Game", () => {
 
     expect(game.score()).toBe(5 + 5 + 1 + (1 + 2))
   })
+
+  it("acceptance test for spares", () => {
+    const game = new Game()
+
+    game.roll(7)
+    game.roll(3)
+    game.roll(5)
+    game.roll(2)
+    game.roll(4)
+    game.roll(6)
+    game.roll(1)
+    game.roll(1)
+
+    expect(game.score()).toBe(35)
+  })
 })
