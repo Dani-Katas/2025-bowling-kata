@@ -8,28 +8,30 @@ describe("Game", () => {
     expect(game.score()).toBe(0)
   })
 
-  it("keeps the score at 0 after a gutter ball", () => {
+  it("keeps the score at 0 after one roll", () => {
     const game = new Game()
 
-    game.roll(0)
+    game.roll(1)
 
     expect(game.score()).toBe(0)
   })
 
-  it("updates the score with a roll", () => {
-    const game = new Game()
-
-    game.roll(1)
-
-    expect(game.score()).toBe(1)
-  })
-
-  it("adds the pins of two rolls", () => {
+  it("updates the score after a turn", () => {
     const game = new Game()
 
     game.roll(1)
     game.roll(0)
 
     expect(game.score()).toBe(1)
+  })
+
+  it.skip("", () => {
+    const game = new Game()
+
+    game.roll(5)
+    game.roll(5)
+    game.roll(5)
+
+    expect(game.score()).toBe(15)
   })
 })

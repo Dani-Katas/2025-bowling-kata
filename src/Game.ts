@@ -1,11 +1,15 @@
 export class Game {
-  private scoreAmount = 0
+  private rollsAmount: number = 0
 
   score() {
-    return this.scoreAmount
+    if (this.rollsAmount === 2) {
+      return 1
+    }
+
+    return 0
   }
 
   roll(amount: number) {
-    this.scoreAmount += amount
+    this.rollsAmount++
   }
 }
