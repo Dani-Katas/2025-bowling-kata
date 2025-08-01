@@ -13,7 +13,7 @@ class Frame {
     return this.rolls.length === 1 && this.rolls[0] === 10
   }
 
-  getScore(nextFrame?: Frame) {
+  getScore(nextFrame?: Frame): number {
     if (!this.hasEnded()) {
       return 0
     }
