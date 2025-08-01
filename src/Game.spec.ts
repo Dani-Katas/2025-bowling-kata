@@ -98,4 +98,14 @@ describe("Game", () => {
 
     expect(game.score()).toBe(10)
   })
+
+  it("strike! 💥 and then scores", () => {
+    const game = new Game()
+
+    game.roll(10)
+    game.roll(1)
+    game.roll(1)
+
+    expect(game.score()).toBe(14)
+  })
 })

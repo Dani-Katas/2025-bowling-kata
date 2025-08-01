@@ -18,11 +18,12 @@ class Frame {
       return 0
     }
 
-    console.log("soy un frame", this.rolls, this.isSpare(), nextFrame)
     if (this.isSpare() && nextFrame) {
-      console.log("soy un sapre")
-      // If this frame is a spare, add the next roll as bonus
       return this.rolls.reduce((a, b) => a + b, 0) + (nextFrame.rolls[0] || 0)
+    }
+
+    if (this.isStrike() && nextFrame) {
+      return this.rolls.reduce((a, b) => a + b, 0) + nextFrame.getScore()
     }
 
     return this.rolls.reduce((a, b) => a + b, 0)
