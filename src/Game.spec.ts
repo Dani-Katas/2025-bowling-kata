@@ -8,6 +8,14 @@ describe("Game", () => {
     expect(game.score()).toBe(0)
   })
 
+  it("keeps the score at 0 after a gutter ball", () => {
+    const game = new Game()
+
+    game.roll(0)
+
+    expect(game.score()).toBe(0)
+  })
+
   it("updates the score with a roll", () => {
     const game = new Game()
 
