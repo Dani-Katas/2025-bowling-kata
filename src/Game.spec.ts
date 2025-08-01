@@ -96,7 +96,7 @@ describe("Game", () => {
 
     game.roll(10)
 
-    expect(game.score()).toBe(10)
+    expect(game.score()).toBe(0)
   })
 
   it("strike! 💥 and then scores", () => {

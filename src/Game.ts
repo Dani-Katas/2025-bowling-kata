@@ -22,6 +22,11 @@ class Frame {
       return this.rolls.reduce((a, b) => a + b, 0) + (nextFrame.rolls[0] || 0)
     }
 
+    console.log(nextFrame)
+    if (this.isStrike() && !nextFrame?.hasEnded()) {
+      return 0
+    }
+
     if (this.isStrike() && nextFrame) {
       return this.rolls.reduce((a, b) => a + b, 0) + nextFrame.getScore()
     }
