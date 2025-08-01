@@ -16,7 +16,7 @@ describe("Game", () => {
     expect(game.score()).toBe(0)
   })
 
-  it("updates the score after a turn", () => {
+  it("updates the score after a frame", () => {
     const game = new Game()
 
     game.roll(1)
@@ -25,13 +25,22 @@ describe("Game", () => {
     expect(game.score()).toBe(1)
   })
 
-  it.skip("", () => {
+  it("returns the total score after a frame", () => {
     const game = new Game()
 
-    game.roll(5)
-    game.roll(5)
-    game.roll(5)
+    game.roll(1)
+    game.roll(1)
 
-    expect(game.score()).toBe(15)
+    expect(game.score()).toBe(2)
+  })
+
+  it("does not add the third roll to the score of the first frame", () => {
+    const game = new Game()
+
+    game.roll(1)
+    game.roll(1)
+    game.roll(1)
+
+    expect(game.score()).toBe(2)
   })
 })
