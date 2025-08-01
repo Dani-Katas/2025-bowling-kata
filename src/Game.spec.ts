@@ -44,7 +44,7 @@ describe("Game", () => {
     expect(game.score()).toBe(2)
   })
 
-  it.skip("??????", () => {
+  it("adds on the fourth score", () => {
     const game = new Game()
 
     game.roll(1)
@@ -53,5 +53,16 @@ describe("Game", () => {
     game.roll(1)
 
     expect(game.score()).toBe(4)
+  })
+
+  it("????", () => {
+    const game = new Game()
+
+    game.roll(5)
+    game.roll(5)
+    game.roll(1)
+    game.roll(2)
+
+    expect(game.score()).toBe(5 + 5 + 1 + (1 + 2))
   })
 })
