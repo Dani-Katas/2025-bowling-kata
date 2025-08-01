@@ -43,4 +43,15 @@ describe("Game", () => {
 
     expect(game.score()).toBe(2)
   })
+
+  it.skip("??????", () => {
+    const game = new Game()
+
+    game.roll(1)
+    game.roll(1)
+    game.roll(1)
+    game.roll(1)
+
+    expect(game.score()).toBe(4)
+  })
 })

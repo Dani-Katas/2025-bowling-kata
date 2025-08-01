@@ -3,15 +3,20 @@ export class Game {
 
   private scoreAmount: number = 0
 
-  score() {
-    if (this.rollsAmount >= 2) {
-      return this.scoreAmount
-    }
+  private rolls: number[] = []
 
-    return 0
+  score() {
+    return this.consolidatedRolls().reduce((a, b) => a + b, 0)
+  }
+
+  consolidatedRolls() {
+    const end = this.rolls.length - (this.rollsAmount % 2 === 0 ? 0 : 1)
+    return this.rolls.slice(0, end)
   }
 
   roll(amount: number) {
+    this.rolls.push(amount)
+
     this.rollsAmount++
 
     if (this.rollsAmount <= 2) {
