@@ -9,6 +9,10 @@ class Frame {
     return this.rolls.length === 2 && this.rolls[0] + this.rolls[1] === 10
   }
 
+  isStrike() {
+    return this.rolls.length === 1 && this.rolls[0] === 10
+  }
+
   getScore(nextFrame?: Frame) {
     if (!this.hasEnded()) {
       return 0
@@ -25,7 +29,7 @@ class Frame {
   }
 
   hasEnded() {
-    return this.rolls.length === 2
+    return this.rolls.length === 2 || this.isStrike()
   }
 }
 
