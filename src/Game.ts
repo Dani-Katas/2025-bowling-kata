@@ -1,8 +1,6 @@
 export class Game {
   private rollsAmount: number = 0
 
-  private scoreAmount: number = 0
-
   private rolls: number[] = []
 
   score() {
@@ -18,9 +16,5 @@ export class Game {
     this.rolls.push(amount)
 
     this.rollsAmount++
-
-    if (this.rollsAmount <= 2) {
-      this.scoreAmount += amount
-    }
   }
 }
