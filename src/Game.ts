@@ -6,6 +6,6 @@ export class Game {
   }
 
   roll(amount: number) {
-    this.scoreAmount = amount
+    this.scoreAmount += amount
   }
 }

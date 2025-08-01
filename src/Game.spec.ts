@@ -23,4 +23,13 @@ describe("Game", () => {
 
     expect(game.score()).toBe(1)
   })
+
+  it("adds the pins of two rolls", () => {
+    const game = new Game()
+
+    game.roll(1)
+    game.roll(0)
+
+    expect(game.score()).toBe(1)
+  })
 })
