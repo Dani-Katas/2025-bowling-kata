@@ -30,48 +30,26 @@ class Frame {
 }
 
 export class Game {
-  private rollsAmount: number = 0
-
-  private frames: Array<number> = []
-
-  private framesNew: Array<Frame> = []
-
-  private currentFrameScore: number = 0
+  private frames: Array<Frame> = []
 
   private currentFrame: Frame = new Frame()
 
   score() {
-    const shaentendi = [...this.framesNew, this.currentFrame]
-    console.log("😎", shaentendi)
-    return shaentendi.reduce((a, b, i) => {
-      console.log("🔩", b, shaentendi[i + 1])
-      return a + b.getScore(shaentendi[i + 1])
+    return this.allFrames().reduce((a, b, i) => {
+      return a + b.getScore(this.allFrames()[i + 1])
     }, 0)
+  }
 
-    return this.frames.reduce((a, b) => a + b, 0)
+  private allFrames() {
+    return [...this.frames, this.currentFrame]
   }
 
   roll(amount: number) {
-    if (this.rollsAmount === 0) {
-      this.currentFrameScore = amount
-      this.rollsAmount++
-      this.addSpareBonus(amount)
-    } else {
-      this.frames.push(this.currentFrameScore + amount)
-      this.rollsAmount = 0
-    }
-
     this.currentFrame.addRoll(amount)
 
     if (this.currentFrame.hasEnded()) {
-      this.framesNew.push(this.currentFrame)
+      this.frames.push(this.currentFrame)
       this.currentFrame = new Frame()
-    }
-  }
-
-  private addSpareBonus(amount: number) {
-    if (this.frames.at(-1) === 10) {
-      this.frames[this.frames.length - 1] += amount
     }
   }
 }
