@@ -55,7 +55,7 @@ describe("Game", () => {
     expect(game.score()).toBe(4)
   })
 
-  it("calculates the score correctly after a spare", () => {
+  it("sums next roll after spare", () => {
     const game = new Game()
 
     game.roll(5)
