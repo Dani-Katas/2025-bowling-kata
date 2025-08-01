@@ -13,8 +13,16 @@ class Frame {
     return this.rolls.length === 1 && this.rolls[0] === 10
   }
 
+  hasAnyRolls() {
+    return this.rolls.length > 0
+  }
+
   getScore(nextFrame?: Frame): number {
     if (!this.hasEnded()) {
+      return 0
+    }
+
+    if (this.isSpare() && !nextFrame?.hasAnyRolls()) {
       return 0
     }
 
@@ -22,7 +30,6 @@ class Frame {
       return this.rolls.reduce((a, b) => a + b, 0) + (nextFrame.rolls[0] || 0)
     }
 
-    console.log(nextFrame)
     if (this.isStrike() && !nextFrame?.hasEnded()) {
       return 0
     }
